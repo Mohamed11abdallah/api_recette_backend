@@ -71,16 +71,46 @@ Exécutez la commande suivante pour démarrer l'application, :
   ```bash
   [
     {
-      "id": 1,
-      "titre": "Spaguettue",
-      "ingredient": "Spagurttue viande Oignons pouvre_noir",
-      "type": "plat"
+        "id": 1,
+        "titre": "Tarte aux pommes",
+        "ingredients": "200g de farine, 100g de beurre, 4 pommes, 50g de sucre",
+        "type": "dessert",
+        "categorie_id": 3
     },
     {
-      "id": 2,
-      "titre": "Couscous",
-      "ingredient": "Viande OIgnons sel couscous",
-      "type": "plat"
+        "id": 2,
+        "titre": "Salade César",
+        "ingredients": "1 laitue romaine, 100g de poulet grillé, 50g de parmesan, 50g de croûtons, 50ml de sauce César",
+        "type": "entrée",
+        "categorie_id": 1
+    },
+    {
+        "id": 3,
+        "titre": "Pâtes à la carbonara",
+        "ingredients": "200g de pâtes, 100g de lardons, 50g de parmesan, 2 oeufs, sel, poivre",
+        "type": "plat",
+        "categorie_id": 2
+    },
+    {
+        "id": 4,
+        "titre": "Soupe de tomates",
+        "ingredients": "1kg de tomates, 1 oignon, 2 gousses d'ail, 500ml de bouillon, basilic",
+        "type": "entrée",
+        "categorie_id": 1
+    },
+    {
+        "id": 5,
+        "titre": "Mousse au chocolat",
+        "ingredients": "200g de chocolat noir, 4 oeufs, 50g de sucre, 200ml de crème",
+        "type": "dessert",
+        "categorie_id": 3
+    },
+    {
+        "id": 6,
+        "titre": "Wrap au poulet",
+        "ingredients": "1 tortilla, 100g de poulet, 50g de fromage, laitue, tomate",
+        "type": "plat",
+        "categorie_id": 2
     }
   ]
   ```
@@ -96,9 +126,10 @@ Exécutez la commande suivante pour démarrer l'application, :
   ```bash
   {
     "id": 1,
-    "titre": "Spaguettue",
-    "ingredient": "Spagurttue viande Oignons pouvre_noir",
-    "type": "plat"
+    "titre": "Tarte aux pommes",
+    "ingredients": "200g de farine, 100g de beurre, 4 pommes, 50g de sucre",
+    "type": "dessert",
+    "categorie_id": 3
   }
   ```
 
@@ -112,14 +143,10 @@ Exécutez la commande suivante pour démarrer l'application, :
 
 ```bash
 {
-  "titre": "Spaguettue",
-  "ingredient": "Spagurttue viande Oignons pouvre_noir",
-  "type": "plat"
-},
-{
-  "titre": "Couscous",
-  "ingredient": "Viande OIgnons sel couscous",
-  "type": "plat"
+  "titre": "Nouvelle Recette",
+  "ingredients": "200g de farine, 100g de sucre, 3 oeufs",
+  "type": "dessert",
+  "categorie_id": 4
 }
 ```
 
@@ -142,9 +169,10 @@ Exécutez la commande suivante pour démarrer l'application, :
 
   ```bash
   {
-    "titre": "Couscous",
-    "ingredient": "Viande Oignons sel couscous",
-    "type": "plat"
+  "titre": "Nouvelle Recette",
+  "ingredients": "250g de farine, 100g de sucre, 3 oeufs",
+  "type": "dessert",
+  "categorie_id": 4
   }
   ```
 
@@ -161,7 +189,121 @@ Exécutez la commande suivante pour démarrer l'application, :
 - **URL** : `/recipes/:id`
 - **Méthode HTTP** : `DELETE`
 - **Description** : Supprime une recette existante en fonction de son ID.
-- **Exemple URL** : http://localhost:4000/api/recipe/1
+- **Exemple URL** : http://localhost:4000/api/recipe/7
+- **Reponse** :
+
+```bash
+{
+    "message": "Suppression réussie avec succès"
+}
+```
+
+### 6. Rechercher des recettes
+
+- **URL** : `/recipes`
+- **Méthode HTTP** : `GET`
+- **Description** : Rechercher des recettes
+- **Exemple URL** : http://localhost:4000/api/recipes/search?nom=pommes
+- **Reponse** :
+
+  ```bash
+  [
+    {
+        "id": 1,
+        "titre": "Tarte aux pommes",
+        "ingredients": "200g de farine, 100g de beurre, 4 pommes, 50g de sucre",
+        "type": "dessert",
+        "categorie_id": 3
+    }
+  ]
+  ```
+
+### 7. Obtenir toutes les catégories
+
+- **URL** : `/categories`
+- **Méthode HTTP** : `GET`
+- **Description** : Récupère toutes les catégories de la base de données.
+- **Exemple** : http://localhost:4000/api/categories
+- **Reponse** :
+
+```bash
+  [
+    {
+        "id": 3,
+        "nom": "Desserts"
+    },
+    {
+        "id": 1,
+        "nom": "Entrées froides"
+    },
+    {
+        "id": 6,
+        "nom": "Plat Africain"
+    },
+    {
+        "id": 2,
+        "nom": "Plats principaux"
+    },
+    {
+        "id": 4,
+        "nom": "Salades"
+    },
+    {
+        "id": 5,
+        "nom": "Snacks"
+    }
+]
+```
+
+### 8. Obtenir une catégorie par ID
+
+- **URL** : `/categories`
+- **Méthode HTTP** : `GET`
+- **Description** : Récupère une catégories par ID.
+- **Exemple** : http://localhost:4000/api/categories/3
+- **Reponse** :
+
+```bash
+{
+    "id": 3,
+    "nom": "Desserts"
+}
+```
+
+### 9. Créer une nouvelle catégorie
+
+- **URL** : `/categories`
+- **Méthode HTTP** : `POST`
+- **Description** : Récupère une catégories par ID.
+- **Exemple** : http://localhost:4000/api/categories
+- **Reponse** :
+
+```bash
+{
+  "nom": "Plat Sénegalais"
+}
+```
+
+### 10. Mettre à jour une catégorie par ID
+
+- **URL** : `/categories`
+- **Méthode HTTP** : `PUT`
+- **Description** : Mets à jour une catégorie par ID
+- **Exemple** : http://localhost:4000/api/categories/8
+- **Reponse** :
+
+```bash
+{
+  "nom": "Plat Sénegalaise"
+}
+```
+
+### 11. Supprimer une recette
+
+- **URL** : `/categories/:id`
+- **Méthode HTTP** : `DELETE`
+- **Description** : Supprime une categorie existante en fonction de son ID.
+- **Exemple URL** : http://localhost:4000/api/categories/8
 - **Reponse** :
 
 ```bash
