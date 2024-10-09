@@ -18,13 +18,13 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 1. Clonez le repository :
 
 ```bash
-    git clone https://github.com/Mohamed11abdallah/recette_api.git
+    git clone https://github.com/Mohamed11abdallah/api_recette_backend.git
 ```
 
 2. Accédez au dossier du projet :
 
 ```bash
-    cd recette_api
+    cd api_recette_backend
 ```
 
 3. Installez les dépendances :
