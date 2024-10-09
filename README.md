@@ -182,7 +182,7 @@ Nous avons préparé une collection de requêtes Postman pour faciliter les test
 2. Ouvrez Postman.
 3. Cliquez sur **Importer** en haut à gauche.
 4. Sélectionnez le fichier `.json` exporté et cliquez sur **Importer**.
-5. Vous verrez la collection `recette_api` dans votre interface Postman.
+5. Vous verrez la collection `collection` dans votre interface Postman.
 
 ## Comment exécuter les tests unitaires
 
@@ -190,6 +190,20 @@ Assurez-vous que votre base de données est configurée correctement avant d'ex�
 
 ```bash
 npm test
+```
+
+## Analyse et formatage du code
+
+- Exécuter ce code pour l'analyse et la correction :
+
+```bash
+npm run lint
+```
+
+- Exécuter le formatage automatique avec :
+
+```bash
+npm run format
 ```
 
 ## Auteur
