@@ -36,27 +36,23 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 4. Configurer la base de données :
 
 - Assurez-vous que Mysql est en cours d'exécution sur votre machine locale.
-- Mettez les paramètres de connexion dans db.js.
-- Créez un fichier .env avec la configuration de votre base de données, et il doit être créé à la racine du projet. :
+- Renommez le fichier **.env.example** en **.env** ensuite, vous devez éditer ce fichier **.env** pour y inscrire vos propres informations de connexion à la base de données. Voici les lignes que vous devrez adapter :
 
 ```bash
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=mots_de_passe
-DB_NAME=nom_de_la_base_de_donnée
-port=4000
-
-MYSQL_ROOT_PASSWORD=mots_de_passe
-MYSQL_DATABASE=nom_de_la_base_de_donnée
+DB_HOST=localhost      # Laissez 'localhost' si MySQL est sur votre machine locale
+DB_USER=user           # Remplacez 'user' par votre propre nom d'utilisateur MySQL
+DB_PASSWORD=your_password  # Remplacez 'your_password' par votre mot de passe MySQL
+DB_NAME=cuisine        # Vous pouvez conserver 'cuisine' ou mettre le nom de votre propre base de données
+port=4000              # Si vous utilisez un autre port pour l'application, ajustez-le ici
 
 ```
 
-5. Importer la base de données :
+1. Importer la base de données :
 
 - pour importez la base de donées veuillez vous situez a la racine du projet et taper la commande suivantes.
 
 ```bash
-    mysqldump -u root -p cuisine < cuisine.sql
+    mysqldump -u user_name -p < cuisine.sql
 
 ```
 
